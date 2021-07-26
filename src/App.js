@@ -1,8 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 import web3 from './web3';
+import lottery from './lottery';
+import { async } from 'q';
 
 function App() {
+ async componentDidMount() {
+    const manager = await lottery.methods.manager().call();
+
+    this.setState({ manager});
+  }
   return (
 
     <div className="App">
